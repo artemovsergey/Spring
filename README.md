@@ -128,5 +128,52 @@ ENTRYPOINT ["java","-jar","/app.jar"]
     </session-factory>
 </hibernate-configuration>
 
-
 ```
+
+# Migration Liquibase
+
+- db/changelog/master.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="db/changelog/users-table-changelog.xml"/>
+    <include file="db/changelog/addRoleToUser.xml"/>
+
+</databaseChangeLog>
+```
+
+- users-table-changelog.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd"
+
+        xmlns:db="http://www.liquibase.org/xml/ns/dbchangelog">
+
+    <db:createTable tableName="users">
+        <db:column name="id" type="int">
+            <db:constraints primaryKey="true" nullable="false"/>
+        </db:column>
+        <db:column name="name" type="varchar(255)">
+            <db:constraints nullable="false"/>
+        </db:column>
+        <db:column name="age" type="int">
+            <db:constraints nullable="false"/>
+        </db:column>
+    </db:createTable>
+
+</databaseChangeLog>
+```
+
+
+
