@@ -175,5 +175,16 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 </databaseChangeLog>
 ```
 
+# Seed
 
+```java
+@Configuration
+public class Init {
+    @Bean
+    public CommandLineRunner dataLoader(UserInterface repo){
+        User user = new User(null,"user1",1, "admin");
+        return args -> repo.save(user);
+    }
+}
+```
 
