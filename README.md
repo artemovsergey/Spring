@@ -18,4 +18,12 @@
 
 # Deploy
 
+- Build ```mvnw package```
+- Run  ```java -jar filename```
+
+
 https://www.cloudfoundry.org/
+
+
+
+
