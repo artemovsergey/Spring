@@ -15,3 +15,7 @@
 # RSocket
 
 Как SignalR
+
+# Deploy
+
+https://www.cloudfoundry.org/
