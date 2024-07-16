@@ -29,6 +29,19 @@ https://www.cloudfoundry.org/
 - ```mvnw spring-boot:build-image```
 - ```mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=your_image_name_here```
 
+- Настройка имени образа
+
+```xnl
+<plugin>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-maven-plugin</artifactId>
+ <configuration>
+ <image>
+ <name>tacocloud/${project.artifactId}:${project.version}</name>
+ </image>
+ </configuration>
+</plugin>
+```
 
 
 
