@@ -27,6 +27,7 @@ https://www.cloudfoundry.org/
 # Авто сборка Docker Image from Spring
 
 - ```mvnw spring-boot:build-image```
+- ```mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=your_image_name_here```
 
 
 
